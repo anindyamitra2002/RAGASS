@@ -13,7 +13,12 @@ import psutil
 import traceback
 from tqdm import tqdm
 import streamlit as st
+from huggingface_hub import login
+
+
 load_dotenv()
+login(token=os.getenv("HUGGINGFACEHUB_API_TOKEN"))
+
 
 TMP_DIR = Path(__file__).resolve().parent.joinpath('data', 'tmp')
 LOCAL_VECTOR_STORE_DIR = Path(__file__).resolve().parent.joinpath('data', 'vector_store')
